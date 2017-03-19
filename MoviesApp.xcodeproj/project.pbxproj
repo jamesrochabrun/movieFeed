@@ -13,6 +13,7 @@
 		7BC3447B1E7F266600390350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC344791E7F266600390350 /* LaunchScreen.storyboard */; };
 		7BC344891E7F298B00390350 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC344881E7F298B00390350 /* BaseCell.swift */; };
 		7BC3448B1E7F2CB100390350 /* TwoColumnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3448A1E7F2CB100390350 /* TwoColumnLayout.swift */; };
+		7BC3448D1E7F351E00390350 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3448C1E7F351E00390350 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7BC3447C1E7F266600390350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BC344881E7F298B00390350 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		7BC3448A1E7F2CB100390350 /* TwoColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoColumnLayout.swift; sourceTree = "<group>"; };
+		7BC3448C1E7F351E00390350 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		7BC344851E7F275800390350 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7BC3448C1E7F351E00390350 /* Movie.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				7BC344891E7F298B00390350 /* BaseCell.swift in Sources */,
 				7BC3448B1E7F2CB100390350 /* TwoColumnLayout.swift in Sources */,
 				7BC344711E7F266600390350 /* AppDelegate.swift in Sources */,
+				7BC3448D1E7F351E00390350 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

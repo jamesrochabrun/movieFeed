@@ -15,9 +15,7 @@ class MoviesFeedVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = .white
-        collectionView?.register(MovieCell.self, forCellWithReuseIdentifier: cellID)
-        
-        
+        collectionView?.register(MovieCell.self, forCellWithReuseIdentifier: cellID)        
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,18 +30,6 @@ class MoviesFeedVC: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
         return cell
     }
-}
-
-
-extension MoviesFeedVC: UICollectionViewDelegateFlowLayout {
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: view.frame.width / 2, height: view.frame.width)
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 0;
-//    }
 }
 
 
