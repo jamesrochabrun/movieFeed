@@ -11,11 +11,16 @@ import UIKit
 class MoviesFeedVC: UICollectionViewController {
     
     private let cellID = "cellID"
+    let client = ItunesAPIClient()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = .white
-        collectionView?.register(MovieCell.self, forCellWithReuseIdentifier: cellID)        
+        collectionView?.register(MovieCell.self, forCellWithReuseIdentifier: cellID)
+        client.getMovieFeedWith { (result) in
+            dump(result)
+        }
     }
 
     override func didReceiveMemoryWarning() {

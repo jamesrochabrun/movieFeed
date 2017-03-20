@@ -14,6 +14,9 @@
 		7BC344891E7F298B00390350 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC344881E7F298B00390350 /* BaseCell.swift */; };
 		7BC3448B1E7F2CB100390350 /* TwoColumnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3448A1E7F2CB100390350 /* TwoColumnLayout.swift */; };
 		7BC3448D1E7F351E00390350 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3448C1E7F351E00390350 /* Movie.swift */; };
+		7BC3448F1E7F90FF00390350 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3448E1E7F90FF00390350 /* MovieViewModel.swift */; };
+		7BC344911E7F934900390350 /* JSONDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC344901E7F934900390350 /* JSONDownloader.swift */; };
+		7BC344931E7F974600390350 /* ItunesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC344921E7F974600390350 /* ItunesAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		7BC344881E7F298B00390350 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		7BC3448A1E7F2CB100390350 /* TwoColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoColumnLayout.swift; sourceTree = "<group>"; };
 		7BC3448C1E7F351E00390350 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		7BC3448E1E7F90FF00390350 /* MovieViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		7BC344901E7F934900390350 /* JSONDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDownloader.swift; sourceTree = "<group>"; };
+		7BC344921E7F974600390350 /* ItunesAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItunesAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				7BC3448C1E7F351E00390350 /* Movie.swift */,
+				7BC3448E1E7F90FF00390350 /* MovieViewModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -114,6 +121,8 @@
 		7BC344871E7F277000390350 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				7BC344901E7F934900390350 /* JSONDownloader.swift */,
+				7BC344921E7F974600390350 /* ItunesAPIClient.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -190,11 +199,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BC344911E7F934900390350 /* JSONDownloader.swift in Sources */,
+				7BC344931E7F974600390350 /* ItunesAPIClient.swift in Sources */,
 				7BC344731E7F266600390350 /* MoviesFeedVC.swift in Sources */,
 				7BC344891E7F298B00390350 /* BaseCell.swift in Sources */,
 				7BC3448B1E7F2CB100390350 /* TwoColumnLayout.swift in Sources */,
 				7BC344711E7F266600390350 /* AppDelegate.swift in Sources */,
 				7BC3448D1E7F351E00390350 /* Movie.swift in Sources */,
+				7BC3448F1E7F90FF00390350 /* MovieViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
