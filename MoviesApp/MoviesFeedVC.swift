@@ -11,38 +11,55 @@ import UIKit
 class MoviesFeedVC: UICollectionViewController {
     
     private let cellID = "cellID"
-    let client = ItunesAPIClient()
-
-
+    fileprivate let movieDataSource = MovieFeedDataSource()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = .white
         collectionView?.register(MovieCell.self, forCellWithReuseIdentifier: cellID)
-        client.getMovieFeedWith { (result) in
-            dump(result)
-        }
+        collectionView?.dataSource = movieDataSource
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTable), name: NSNotification.Name.successDataNotification, object: nil)
+    }
+    
+    func reloadTable() {
+        collectionView?.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+}
+
+extension MoviesFeedVC {
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
-        return cell
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let movie = movieDataSource.getMovies()[indexPath.item]
+        let movieDetailVC = MovieDetailVC(collectionViewLayout: UICollectionViewFlowLayout())
+        movieDetailVC.movie = movie
+        let navVC = UINavigationController(rootViewController: movieDetailVC)
+        self.present(navVC, animated: true)
     }
 }
 
 
-class MovieCell: BaseCell {
-    
-    override func setupViews() {
-        backgroundColor = .green
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

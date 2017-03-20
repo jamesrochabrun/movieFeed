@@ -37,7 +37,9 @@ class JSONDownloader {
                 if let data = data {
                     do {
                         if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] {
-                            completion(.Success(json))
+                            DispatchQueue.main.async {
+                                completion(.Success(json))
+                            }
                         }
                     } catch {
                         completion(.Error(.jsonConversionFailure))

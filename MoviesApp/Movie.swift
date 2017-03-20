@@ -7,15 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 struct Movie {
     
+    //Asked on requirements
     let title: String
     let imageURL: String
     let releaseDate: String
     let purchasePrice: Price
     let itunesURL: String
-    
+    //Extra
     let rentalPrice: Price
     let summary: String
     let category: String

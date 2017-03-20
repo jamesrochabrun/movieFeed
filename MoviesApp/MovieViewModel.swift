@@ -12,10 +12,10 @@ import UIKit
 struct MovieViewModel {
     
     let title: String
-    let imageURL: String
     let releaseDate: String
     let purchasePrice: String
     let itunesURL: String
+    let imageURL: String
     
     let rentalPrice: String
     let summary: String
@@ -25,10 +25,18 @@ struct MovieViewModel {
         self.title = model.title.uppercased()
         self.imageURL = model.imageURL
         self.releaseDate = model.releaseDate
-        self.purchasePrice = String(format: "%.2f %@", model.purchasePrice.amount, model.purchasePrice.currency)
+        if let doublePurchasePrice = Double(model.purchasePrice.amount) {
+            self.purchasePrice = String(format: "%.02f %@", doublePurchasePrice, model.purchasePrice.currency)
+        } else {
+            self.purchasePrice = ""
+        }
+        if let doubleRentalPrice = Double(model.rentalPrice.amount) {
+            self.rentalPrice = String(format: "%.02f %@", doubleRentalPrice, model.rentalPrice.currency)
+        } else {
+            self.rentalPrice = ""
+        }
         self.itunesURL = model.itunesURL
-        self.rentalPrice = String(format: "%.2f %@", model.rentalPrice.amount, model.rentalPrice.currency)
-        self.summary = model.summary
-        self.category = model.category
+        self.summary = model.summary == "" ? "No data provided" : model.summary
+        self.category = model.category == "" ? "No data provided" : model.category
     }
 }
