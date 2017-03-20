@@ -13,6 +13,12 @@
 		7BBE9A241E8045AD00570BC6 /* MovieFeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE9A231E8045AD00570BC6 /* MovieFeedDataSource.swift */; };
 		7BBE9A261E8047AF00570BC6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE9A251E8047AF00570BC6 /* Extensions.swift */; };
 		7BBE9A281E8048CF00570BC6 /* MovieDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE9A271E8048CF00570BC6 /* MovieDetailVC.swift */; };
+		7BBE9A2A1E80510200570BC6 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE9A291E80510200570BC6 /* BaseTableViewCell.swift */; };
+		7BBE9A2C1E80636300570BC6 /* MainDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE9A2B1E80636300570BC6 /* MainDetailCell.swift */; };
+		7BBE9A2E1E808FCF00570BC6 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE9A2D1E808FCF00570BC6 /* SummaryCell.swift */; };
+		7BBE9A301E80901000570BC6 /* PriceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE9A2F1E80901000570BC6 /* PriceViewModel.swift */; };
+		7BBE9A321E80A35000570BC6 /* PriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE9A311E80A35000570BC6 /* PriceCell.swift */; };
+		7BBE9A341E80A3B600570BC6 /* MovieDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE9A331E80A3B600570BC6 /* MovieDataSource.swift */; };
 		7BC344711E7F266600390350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC344701E7F266600390350 /* AppDelegate.swift */; };
 		7BC344731E7F266600390350 /* MoviesFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC344721E7F266600390350 /* MoviesFeedVC.swift */; };
 		7BC344781E7F266600390350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC344771E7F266600390350 /* Assets.xcassets */; };
@@ -32,6 +38,12 @@
 		7BBE9A231E8045AD00570BC6 /* MovieFeedDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieFeedDataSource.swift; sourceTree = "<group>"; };
 		7BBE9A251E8047AF00570BC6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7BBE9A271E8048CF00570BC6 /* MovieDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailVC.swift; sourceTree = "<group>"; };
+		7BBE9A291E80510200570BC6 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		7BBE9A2B1E80636300570BC6 /* MainDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDetailCell.swift; sourceTree = "<group>"; };
+		7BBE9A2D1E808FCF00570BC6 /* SummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
+		7BBE9A2F1E80901000570BC6 /* PriceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceViewModel.swift; sourceTree = "<group>"; };
+		7BBE9A311E80A35000570BC6 /* PriceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceCell.swift; sourceTree = "<group>"; };
+		7BBE9A331E80A3B600570BC6 /* MovieDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDataSource.swift; sourceTree = "<group>"; };
 		7BC3446D1E7F266600390350 /* MoviesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC344701E7F266600390350 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BC344721E7F266600390350 /* MoviesFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFeedVC.swift; sourceTree = "<group>"; };
@@ -61,7 +73,11 @@
 			isa = PBXGroup;
 			children = (
 				7BC344881E7F298B00390350 /* BaseCell.swift */,
+				7BBE9A291E80510200570BC6 /* BaseTableViewCell.swift */,
 				7BBE9A1C1E80251000570BC6 /* MovieCell.swift */,
+				7BBE9A2B1E80636300570BC6 /* MainDetailCell.swift */,
+				7BBE9A2D1E808FCF00570BC6 /* SummaryCell.swift */,
+				7BBE9A311E80A35000570BC6 /* PriceCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -138,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				7BC3448E1E7F90FF00390350 /* MovieViewModel.swift */,
+				7BBE9A2F1E80901000570BC6 /* PriceViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -147,6 +164,7 @@
 			children = (
 				7BC3448C1E7F351E00390350 /* Movie.swift */,
 				7BBE9A231E8045AD00570BC6 /* MovieFeedDataSource.swift */,
+				7BBE9A331E80A3B600570BC6 /* MovieDataSource.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -243,17 +261,23 @@
 			files = (
 				7BC344911E7F934900390350 /* JSONDownloader.swift in Sources */,
 				7BC344931E7F974600390350 /* ItunesAPIClient.swift in Sources */,
+				7BBE9A2E1E808FCF00570BC6 /* SummaryCell.swift in Sources */,
 				7BBE9A1D1E80251000570BC6 /* MovieCell.swift in Sources */,
+				7BBE9A301E80901000570BC6 /* PriceViewModel.swift in Sources */,
 				7BBE9A241E8045AD00570BC6 /* MovieFeedDataSource.swift in Sources */,
 				7BC344731E7F266600390350 /* MoviesFeedVC.swift in Sources */,
 				7BC344891E7F298B00390350 /* BaseCell.swift in Sources */,
 				7BBE9A1F1E803CD100570BC6 /* Constants.swift in Sources */,
+				7BBE9A2C1E80636300570BC6 /* MainDetailCell.swift in Sources */,
 				7BBE9A221E8042F000570BC6 /* ImageViewCachable.swift in Sources */,
 				7BBE9A261E8047AF00570BC6 /* Extensions.swift in Sources */,
 				7BBE9A281E8048CF00570BC6 /* MovieDetailVC.swift in Sources */,
 				7BC3448B1E7F2CB100390350 /* TwoColumnLayout.swift in Sources */,
 				7BC344711E7F266600390350 /* AppDelegate.swift in Sources */,
+				7BBE9A341E80A3B600570BC6 /* MovieDataSource.swift in Sources */,
 				7BC3448D1E7F351E00390350 /* Movie.swift in Sources */,
+				7BBE9A2A1E80510200570BC6 /* BaseTableViewCell.swift in Sources */,
+				7BBE9A321E80A35000570BC6 /* PriceCell.swift in Sources */,
 				7BC3448F1E7F90FF00390350 /* MovieViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

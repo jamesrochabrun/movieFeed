@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: MoviesFeedVC(collectionViewLayout: TwoColumnLayout()))
+        window?.rootViewController = MoviesFeedVC(collectionViewLayout: TwoColumnLayout())
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 

@@ -18,6 +18,7 @@ class MoviesFeedVC: UICollectionViewController {
         collectionView?.backgroundColor = .white
         collectionView?.register(MovieCell.self, forCellWithReuseIdentifier: cellID)
         collectionView?.dataSource = movieDataSource
+        collectionView?.contentInset = UIEdgeInsetsMake(22, 0, 0, 0)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable), name: NSNotification.Name.successDataNotification, object: nil)
     }
     
@@ -40,10 +41,10 @@ extension MoviesFeedVC {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let movie = movieDataSource.getMovies()[indexPath.item]
-        let movieDetailVC = MovieDetailVC(collectionViewLayout: UICollectionViewFlowLayout())
+        let movieDetailVC = MovieDetailVC()
         movieDetailVC.movie = movie
-        let navVC = UINavigationController(rootViewController: movieDetailVC)
-        self.present(navVC, animated: true)
+      //  let navVC = UINavigationController(rootViewController: movieDetailVC)
+        self.present(movieDetailVC, animated: true)
     }
 }
 

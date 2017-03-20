@@ -33,7 +33,7 @@ class MovieCell: BaseCell {
         let l = UILabel()
         l.numberOfLines = 0
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 16)
+        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         l.textAlignment = .center
         l.textColor = .white
         return l
@@ -43,7 +43,7 @@ class MovieCell: BaseCell {
         let l = UILabel()
         l.numberOfLines = 0
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 14)
+        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
         l.textAlignment = .center
         l.textColor = .white
         return l
@@ -53,7 +53,7 @@ class MovieCell: BaseCell {
         let l = UILabel()
         l.numberOfLines = 0
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 14)
+        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
         l.textAlignment = .center
         l.textColor = .white
         return l
