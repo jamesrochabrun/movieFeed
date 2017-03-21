@@ -39,3 +39,14 @@ class FooterView: BaseView {
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+

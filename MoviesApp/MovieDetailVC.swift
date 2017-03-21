@@ -16,22 +16,19 @@ class MovieDetailVC: UITableViewController {
     private let subDetailCellID = "subDetailCellID"
     private var movieDataSource: MovieDataSource?
     
+    let movieIMageView: MovieImageView = {
+        let miv = MovieImageView(frame: CGRect.zero)
+        miv.blurWith(style: .light)
+        miv.opaqueWith(color: Constants.Colors.backGroundColor, alpha: 0.3)
+        return miv
+    }()
+    
     var movie: Movie? {
         didSet {
             if let movie = movie {
                 self.movieDataSource = MovieDataSource(movie: movie)
-                let miv = MovieImageView()
-                miv.contentMode = .scaleAspectFill
-                miv.clipsToBounds = true
-                miv.loadImageUsingCacheWithURLString(movie.imageURL, placeHolder: nil)
-                
-                let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-                let blurEffectView = UIVisualEffectView(effect: blurEffect)
-                blurEffectView.frame = miv.bounds
-                blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                miv.addSubview(blurEffectView)
-                
-                self.tableView.backgroundView = miv
+                self.movieIMageView.loadImageUsingCacheWithURLString(movie.imageURL, placeHolder: nil)
+                self.tableView.backgroundView = self.movieIMageView
             }
         }
     }
@@ -124,7 +121,6 @@ extension MovieDetailVC: FooterViewDelegate {
         }
     }
 }
-
 
 
 

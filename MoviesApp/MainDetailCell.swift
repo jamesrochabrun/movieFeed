@@ -9,30 +9,23 @@
 import Foundation
 import UIKit
 
+class ContainerOpaque: UIView, Opaqueable {}
+
 class MainDetailCell: BaseTableViewCell {
     
     let movieImageView: MovieImageView = {
-        let miv = MovieImageView()
-        miv.contentMode = .scaleAspectFill
+        let miv = MovieImageView(frame: CGRect.zero)
         miv.translatesAutoresizingMaskIntoConstraints = false
-        miv.clipsToBounds = true
         return miv
     }()
     
-    let containerView: UIView = {
-        let cv = UIView()
+    let containerView: ContainerOpaque = {
+        let cv = ContainerOpaque()
         cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.opaqueWith(color: Constants.Colors.backGroundColor, alpha: 0.4)
         return cv
     }()
-    
-    let overlayView: UIView = {
-        let cv = UIView()
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.backGroundColor)
-        cv.alpha = 0.2
-        return cv
-    }()
-    
+
     let categoryLabel: UILabel = {
         let l = UILabel()
         l.numberOfLines = 0
@@ -86,15 +79,9 @@ class MainDetailCell: BaseTableViewCell {
         containerView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
-        containerView.addSubview(overlayView)
         containerView.addSubview(categoryLabel)
         containerView.addSubview(releaseDateLabel)
         containerView.addSubview(movieTitleLabel)
-            
-        overlayView.leftAnchor.constraint(equalTo: movieImageView.rightAnchor).isActive = true
-        overlayView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        overlayView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        overlayView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         categoryLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.UI.mainDetailCellPaddingHorizontal).isActive = true
         categoryLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -Constants.UI.mainDetailCellPaddingHorizontal).isActive = true

@@ -9,15 +9,12 @@
 import Foundation
 import UIKit
 
-class MovieImageView: UIImageView, ImageViewCachable {}
 
 class MovieCell: BaseCell {
     
     let movieImageView: MovieImageView = {
-        let miv = MovieImageView()
-        miv.contentMode = .scaleAspectFill
+        let miv = MovieImageView(frame: CGRect.zero)
         miv.translatesAutoresizingMaskIntoConstraints = false
-        miv.clipsToBounds = true
         return miv
     }()
     
