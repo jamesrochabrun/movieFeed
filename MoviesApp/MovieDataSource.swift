@@ -15,6 +15,7 @@ class MovieDataSource: NSObject, UITableViewDataSource {
     private let mainCellID = "mainCellID"
     private let summaryCellID = "summaryCellID"
     private let subDetailCellID = "subDetailCellID"
+    private let numberOfFields: Int = 3
     
     override init() {
         super.init()
@@ -27,30 +28,31 @@ class MovieDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        guard let movie = self.movie else {
+            return BaseTableViewCell()
+        }
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: mainCellID, for: indexPath) as! MainDetailCell
-            if let movie = self.movie {
                 let movieViewModel = MovieViewModel(model: movie)
                 cell.displayMovieInCell(using: movieViewModel)
-            }
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: summaryCellID, for: indexPath) as! SummaryCell
-            if let movie = self.movie {
                 let movieViewModel = MovieViewModel(model: movie)
                 cell.displayMovieInCell(using: movieViewModel)
-            }
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: subDetailCellID, for: indexPath) as! PriceCell
-        if let movie = self.movie {
             let priceViewModel = PriceViewModel(model: movie)
             cell.displayMovieInCell(using: priceViewModel)
-        }
         return cell
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return numberOfFields
     }
 }
+
+
+
 

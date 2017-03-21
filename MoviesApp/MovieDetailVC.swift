@@ -26,8 +26,10 @@ class MovieDetailVC: UITableViewController {
     var movie: Movie? {
         didSet {
             if let movie = movie {
+                //this shows the data in the cells
                 self.movieDataSource = MovieDataSource(movie: movie)
-                self.movieIMageView.loadImageUsingCacheWithURLString(movie.imageURL, placeHolder: nil)
+                /////////////////
+                self.movieIMageView.loadImageUsingCacheWithURLString(movie.imageURL, placeHolder: #imageLiteral(resourceName: "placeholder"))
                 self.tableView.backgroundView = self.movieIMageView
             }
         }

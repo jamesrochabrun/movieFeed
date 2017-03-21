@@ -109,7 +109,7 @@ class MainDetailCell: BaseTableViewCell {
     
     func displayMovieInCell(using viewModel: MovieViewModel) {
         
-        movieImageView.loadImageUsingCacheWithURLString(viewModel.imageURL, placeHolder: UIImage())
+        movieImageView.loadImageUsingCacheWithURLString(viewModel.imageURL, placeHolder: #imageLiteral(resourceName: "placeholder"))
         movieTitleLabel.text = viewModel.title
         releaseDateLabel.text = viewModel.releaseDate
         categoryLabel.text = viewModel.category

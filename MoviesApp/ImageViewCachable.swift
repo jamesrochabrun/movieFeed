@@ -22,6 +22,7 @@ extension ImageViewCachable where Self: UIImageView {
             self.image = cachedImage
             return
         }
+        self.image = #imageLiteral(resourceName: "placeholder")
         
         if let url = URL(string: URLString) {
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
@@ -43,6 +44,8 @@ extension ImageViewCachable where Self: UIImageView {
                     }
                 }
             }).resume()
+        } else {
+                self.image = placeHolder
         }
     }
 }
