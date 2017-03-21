@@ -51,7 +51,7 @@ class MainDetailCell: BaseTableViewCell {
         let l = UILabel()
         l.numberOfLines = 0
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
         l.textAlignment = .center
         l.textColor = .white
         return l

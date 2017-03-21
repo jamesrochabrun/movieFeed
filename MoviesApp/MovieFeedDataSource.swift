@@ -27,7 +27,7 @@ class MovieFeedDataSource: NSObject, UICollectionViewDataSource {
                         self.movies.append(movie)
                     }
                 }
-                //dump(movies)
+                dump(movies)
                 NotificationCenter.default.post(name: Notification.Name.successDataNotification, object: nil)
             case .Error(let error):
                 print(error)

@@ -24,7 +24,7 @@ class MovieCell: BaseCell {
     let containerView: UIView = {
         let cv = UIView()
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        cv.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor)
         cv.alpha = 0.7
         return cv
     }()
@@ -77,7 +77,7 @@ class MovieCell: BaseCell {
         containerView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         containerView.heightAnchor.constraint(equalToConstant: Constants.UI.containerCellHeight).isActive = true
         
-        movieTitleLabel.bottomAnchor.constraint(equalTo: containerView.topAnchor, constant: Constants.UI.cellPadding).isActive = true
+        movieTitleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: Constants.UI.cellPadding).isActive = true
         movieTitleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -Constants.UI.cellPadding).isActive = true
         movieTitleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.UI.cellPadding).isActive = true
         movieTitleLabel.heightAnchor.constraint(equalToConstant: ((Constants.UI.containerCellHeight - Constants.UI.cellPadding * 2) / 3)).isActive = true

@@ -11,7 +11,7 @@ import UIKit
 
 class TwoColumnLayout: UICollectionViewFlowLayout {
     
-    let innerSpace: CGFloat = 2
+    let innerSpace: CGFloat = 0.5
     let numberOfItemsInRow: CGFloat = 2
 
     override init() {

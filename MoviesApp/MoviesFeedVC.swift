@@ -19,7 +19,7 @@ class MoviesFeedVC: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.backgroundColor = .white
+        collectionView?.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.backGroundColor)
         collectionView?.register(MovieCell.self, forCellWithReuseIdentifier: cellID)
         collectionView?.dataSource = movieDataSource
         collectionView?.contentInset = UIEdgeInsetsMake(22, 0, 0, 0)

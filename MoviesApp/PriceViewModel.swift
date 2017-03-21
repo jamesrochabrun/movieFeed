@@ -19,12 +19,12 @@ struct PriceViewModel {
         if let doublePurchasePrice = Double(model.purchasePrice.amount) {
             self.purchasePrice = String(format: "BUY %.02f %@", doublePurchasePrice, model.purchasePrice.currency)
         } else {
-            self.purchasePrice = ""
+            self.purchasePrice = "Not available for Purchase"
         }
         if let doubleRentalPrice = Double(model.rentalPrice.amount) {
             self.rentalPrice = String(format: "RENT %.02f %@", doubleRentalPrice, model.rentalPrice.currency)
         } else {
-            self.rentalPrice = ""
+            self.rentalPrice = "Not available for Rent"
         }
     }
 }

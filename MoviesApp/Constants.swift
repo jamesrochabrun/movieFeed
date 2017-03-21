@@ -25,5 +25,6 @@ struct Constants {
     struct Colors {
         static let goldColor: String = "#ffa54c"
         static let purpleColor: String = "#7c488d"
+        static let backGroundColor: String = "#3f3f3f"
     }
 }
