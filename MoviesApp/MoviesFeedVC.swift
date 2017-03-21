@@ -45,6 +45,12 @@ class MoviesFeedVC: UICollectionViewController {
     }
 }
 
+extension MoviesFeedVC: UICollectionViewDelegateFlowLayout {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView?.collectionViewLayout.invalidateLayout()
+    }
+}
+
 extension MoviesFeedVC {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

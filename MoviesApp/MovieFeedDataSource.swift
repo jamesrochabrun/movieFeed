@@ -14,7 +14,6 @@ class MovieFeedDataSource: NSObject, UICollectionViewDataSource {
     private let cellID = "cellID"
     private var movies = [Movie]()
     private let client = ItunesAPIClient()
-
     
     override init() {
         super.init()
@@ -27,7 +26,7 @@ class MovieFeedDataSource: NSObject, UICollectionViewDataSource {
                         self.movies.append(movie)
                     }
                 }
-                dump(movies)
+                //dump(movies)
                 NotificationCenter.default.post(name: Notification.Name.successDataNotification, object: nil)
             case .Error(let error):
                 print(error)
@@ -50,7 +49,7 @@ class MovieFeedDataSource: NSObject, UICollectionViewDataSource {
         cell.displayMovieInCell(using: movieViewModel)
         return cell
     }
-
-
-
 }
+
+
+

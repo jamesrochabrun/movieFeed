@@ -27,4 +27,11 @@ struct Constants {
         static let purpleColor: String = "#7c488d"
         static let backGroundColor: String = "#3f3f3f"
     }
+    
+    struct  Font {
+        static let medium = "HelveticaNeue-Medium"
+        static let regular = "HelveticaNeue"
+        static let thin = "HelveticaNeue-Thin"
+        static let light = "HelveticaNeue-Light"
+    }
 }

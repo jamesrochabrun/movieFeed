@@ -20,22 +20,17 @@ class MovieDetailVC: UITableViewController {
         didSet {
             if let movie = movie {
                 self.movieDataSource = MovieDataSource(movie: movie)
-                
                 let miv = MovieImageView()
                 miv.contentMode = .scaleAspectFill
                 miv.translatesAutoresizingMaskIntoConstraints = false
                 miv.clipsToBounds = true
                 miv.loadImageUsingCacheWithURLString(movie.imageURL, placeHolder: nil)
-                
                 self.tableView.backgroundView = miv
                 let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
                 let blurEffectView = UIVisualEffectView(effect: blurEffect)
                 blurEffectView.frame = miv.bounds
                 blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
                 self.tableView.backgroundView?.addSubview(blurEffectView)
-                
-//                let gv = GradientView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 22))
-//                self.tableView.backgroundView?.addSubview(gv)
             }
         }
     }
@@ -51,8 +46,8 @@ class MovieDetailVC: UITableViewController {
         tableView.dataSource = movieDataSource
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.contentInset = UIEdgeInsetsMake(22, 0, 0, 0)
         NotificationCenter.default.addObserver(self, selector: #selector(dismissView), name: NSNotification.Name.dismissViewNotification, object: nil)
+     
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -67,6 +62,15 @@ class MovieDetailVC: UITableViewController {
             return self.tableView.rowHeight
         }
         return (Constants.UI.heightPriceButton * 2) + (Constants.UI.mainDetailCellPaddingHorizontal * 3)
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+       let gv = GradientView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 22))
+        return gv
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 22
     }
     
     @objc private func dismissView() {

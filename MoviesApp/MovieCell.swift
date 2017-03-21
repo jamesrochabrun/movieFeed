@@ -24,8 +24,15 @@ class MovieCell: BaseCell {
     let containerView: UIView = {
         let cv = UIView()
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor)
-        cv.alpha = 0.7
+        cv.backgroundColor = .clear
+        return cv
+    }()
+    
+    let overlayView: UIView = {
+        let cv = UIView()
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.backGroundColor)
+        cv.alpha = 0.4
         return cv
     }()
     
@@ -68,6 +75,7 @@ class MovieCell: BaseCell {
         movieImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         addSubview(containerView)
+        containerView.addSubview(overlayView)
         containerView.addSubview(movieTitleLabel)
         containerView.addSubview(releaseDateLabel)
         containerView.addSubview(priceLabel)
@@ -76,6 +84,11 @@ class MovieCell: BaseCell {
         containerView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         containerView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         containerView.heightAnchor.constraint(equalToConstant: Constants.UI.containerCellHeight).isActive = true
+        
+        overlayView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        overlayView.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+        overlayView.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
+        overlayView.heightAnchor.constraint(equalToConstant: Constants.UI.containerCellHeight).isActive = true
         
         movieTitleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: Constants.UI.cellPadding).isActive = true
         movieTitleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -Constants.UI.cellPadding).isActive = true

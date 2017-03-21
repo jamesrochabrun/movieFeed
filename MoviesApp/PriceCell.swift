@@ -17,7 +17,7 @@ class PriceCell: BaseTableViewCell {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         l.textAlignment = .center
-        l.textColor = .white//UIColor.hexStringToUIColor(Constants.Colors.purpleColor)
+        l.textColor = .white
         l.layer.borderColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor).cgColor
         l.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor)
         l.layer.masksToBounds = true
@@ -32,7 +32,7 @@ class PriceCell: BaseTableViewCell {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         l.textAlignment = .center
-        l.textColor = .white//UIColor.hexStringToUIColor(Constants.Colors.purpleColor)
+        l.textColor = .white
         l.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor)
         l.layer.borderColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor).cgColor
         l.layer.masksToBounds = true
