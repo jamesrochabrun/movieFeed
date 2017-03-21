@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MovieImageView: UIImageView, ImageViewCachable, Blurrable, Opaqueable {
+class MovieImageView: UIImageView, Blurrable, Opaqueable {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

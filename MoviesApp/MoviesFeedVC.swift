@@ -12,9 +12,15 @@ class MoviesFeedVC: UICollectionViewController {
     
     private let cellID = "cellID"
     fileprivate let movieDataSource = MovieFeedDataSource()
+    
     lazy var gradientView: GradientView = {
         let gv = GradientView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: Constants.UI.statusBarHeight))
         return gv
+    }()
+    
+    let customIndicator: CustomActivityIndicator = {
+        let indicator = CustomActivityIndicator()
+        return indicator
     }()
     
     override func viewDidLoad() {
@@ -29,10 +35,16 @@ class MoviesFeedVC: UICollectionViewController {
     
     private func setUpViews() {
         view.addSubview(gradientView)
+        collectionView?.addSubview(customIndicator)
+        customIndicator.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        customIndicator.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        customIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        customIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     func reloadTable() {
         collectionView?.reloadData()
+        customIndicator.stopAnimating()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
