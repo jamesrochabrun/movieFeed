@@ -18,6 +18,7 @@ class SummaryCell: BaseTableViewCell {
         tv.isScrollEnabled = false
         tv.backgroundColor = .clear
         tv.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+        tv.textColor = .white
         return tv
     }()
     

@@ -16,26 +16,35 @@ class MovieDetailVC: UITableViewController {
     private let subDetailCellID = "subDetailCellID"
     private var movieDataSource: MovieDataSource?
     
+    let movieImageview: MovieImageView = {
+        let miv = MovieImageView()
+        miv.contentMode = .scaleAspectFill
+        miv.translatesAutoresizingMaskIntoConstraints = false
+        miv.clipsToBounds = true
+        
+        miv.backgroundColor = .red
+        return miv
+    }()
+    
     var movie: Movie? {
         didSet {
             if let movie = movie {
                 self.movieDataSource = MovieDataSource(movie: movie)
+                //self.movieImageview.loadImageUsingCacheWithURLString(movie.imageURL, placeHolder: nil)
+//                
+//                self.tableView.backgroundView = miv
+//                let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+//                let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//                blurEffectView.frame = miv.bounds
+//                blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//                self.tableView.backgroundView?.addSubview(blurEffectView)
+//                
+//                let gv = GradientView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 22))
+//                self.tableView.backgroundView?.addSubview(gv)
                 
-                let miv = MovieImageView()
-                miv.contentMode = .scaleAspectFill
-                miv.translatesAutoresizingMaskIntoConstraints = false
-                miv.clipsToBounds = true
-                miv.loadImageUsingCacheWithURLString(movie.imageURL, placeHolder: nil)
                 
-                self.tableView.backgroundView = miv
-                let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-                let blurEffectView = UIVisualEffectView(effect: blurEffect)
-                blurEffectView.frame = miv.bounds
-                blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                self.tableView.backgroundView?.addSubview(blurEffectView)
                 
-                let gv = GradientView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 22))
-                miv.addSubview(gv)
+                
             }
         }
     }
@@ -44,7 +53,7 @@ class MovieDetailVC: UITableViewController {
         super.viewDidLoad()
         tableView?.separatorStyle = .none
         tableView.allowsSelection = false
-        tableView.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.backGroundColor)
+        tableView.backgroundColor = .clear
         tableView.register(MainDetailCell.self, forCellReuseIdentifier: mainCellID)
         tableView.register(SummaryCell.self, forCellReuseIdentifier: summaryCellID)
         tableView.register(PriceCell.self, forCellReuseIdentifier: subDetailCellID)
@@ -53,6 +62,17 @@ class MovieDetailVC: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.contentInset = UIEdgeInsetsMake(22, 0, 0, 0)
         NotificationCenter.default.addObserver(self, selector: #selector(dismissView), name: NSNotification.Name.dismissViewNotification, object: nil)
+        setUpViews()
+    }
+    
+    func setUpViews() {
+        
+        self.tableView.addSubview(movieImageview)
+        movieImageview.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        movieImageview.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        movieImageview.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        movieImageview.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

@@ -22,8 +22,14 @@ class MainDetailCell: BaseTableViewCell {
     let containerView: UIView = {
         let cv = UIView()
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        cv.alpha = 0.7
+        return cv
+    }()
+    
+    let overlayView: UIView = {
+        let cv = UIView()
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.backGroundColor)
+        cv.alpha = 0.2
         return cv
     }()
     
@@ -80,9 +86,15 @@ class MainDetailCell: BaseTableViewCell {
         containerView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
+        containerView.addSubview(overlayView)
+        containerView.addSubview(categoryLabel)
         containerView.addSubview(releaseDateLabel)
         containerView.addSubview(movieTitleLabel)
-        containerView.addSubview(categoryLabel)
+            
+        overlayView.leftAnchor.constraint(equalTo: movieImageView.rightAnchor).isActive = true
+        overlayView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        overlayView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        overlayView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         categoryLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.UI.mainDetailCellPaddingHorizontal).isActive = true
         categoryLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -Constants.UI.mainDetailCellPaddingHorizontal).isActive = true
