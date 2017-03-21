@@ -19,6 +19,8 @@ struct Constants {
         static let heightPriceButton: CGFloat = 45.0
         static let dismissButtonWidth: CGFloat = 44.0
         static let dismissButtonHeight: CGFloat = 48.0
+        static let statusBarHeight: CGFloat = 22.0
+        static let footerbuttonHeight: CGFloat = 50.0
 
     }
     

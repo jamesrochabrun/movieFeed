@@ -13,7 +13,7 @@ class MoviesFeedVC: UICollectionViewController {
     private let cellID = "cellID"
     fileprivate let movieDataSource = MovieFeedDataSource()
     lazy var gradientView: GradientView = {
-        let gv = GradientView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 22))
+        let gv = GradientView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: Constants.UI.statusBarHeight))
         return gv
     }()
     
@@ -22,7 +22,7 @@ class MoviesFeedVC: UICollectionViewController {
         collectionView?.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.backGroundColor)
         collectionView?.register(MovieCell.self, forCellWithReuseIdentifier: cellID)
         collectionView?.dataSource = movieDataSource
-        collectionView?.contentInset = UIEdgeInsetsMake(22, 0, 0, 0)
+        collectionView?.contentInset = UIEdgeInsetsMake(Constants.UI.statusBarHeight, 0, 0, 0)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable), name: NSNotification.Name.successDataNotification, object: nil)
         setUpViews()
     }

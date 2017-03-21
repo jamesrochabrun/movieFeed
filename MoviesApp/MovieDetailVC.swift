@@ -22,15 +22,16 @@ class MovieDetailVC: UITableViewController {
                 self.movieDataSource = MovieDataSource(movie: movie)
                 let miv = MovieImageView()
                 miv.contentMode = .scaleAspectFill
-                miv.translatesAutoresizingMaskIntoConstraints = false
                 miv.clipsToBounds = true
                 miv.loadImageUsingCacheWithURLString(movie.imageURL, placeHolder: nil)
-                self.tableView.backgroundView = miv
+                
                 let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
                 let blurEffectView = UIVisualEffectView(effect: blurEffect)
                 blurEffectView.frame = miv.bounds
                 blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                self.tableView.backgroundView?.addSubview(blurEffectView)
+                miv.addSubview(blurEffectView)
+                
+                self.tableView.backgroundView = miv
             }
         }
     }
@@ -44,7 +45,6 @@ class MovieDetailVC: UITableViewController {
         let f = FooterView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
         return f
     }()
- 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +58,6 @@ class MovieDetailVC: UITableViewController {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         NotificationCenter.default.addObserver(self, selector: #selector(dismissView), name: NSNotification.Name.dismissViewNotification, object: nil)
-        view.addSubview(footer)
     }
     
     override func viewWillLayoutSubviews() {
@@ -85,22 +84,17 @@ class MovieDetailVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 22
+        return Constants.UI.statusBarHeight
     }
     
-//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        
-//        let f = FooterView(frame: CGRect(x: 100, y: 0, width: self.view.frame.width, height: 50))
-//        return f
-//        
-//    }
-//    
-//    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 50
-//    }
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return footer
+    }
     
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return Constants.UI.footerbuttonHeight
+    }
 
-    
     @objc private func dismissView() {
         self.dismiss(animated: true)
     }
