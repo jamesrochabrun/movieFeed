@@ -15,12 +15,14 @@ class PriceCell: BaseTableViewCell {
         let l = UILabel()
         l.numberOfLines = 0
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         l.textAlignment = .center
-        l.layer.borderColor = UIColor.purple.cgColor
+        l.textColor = .white//UIColor.hexStringToUIColor(Constants.Colors.purpleColor)
+        l.layer.borderColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor).cgColor
+        l.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor)
+        l.layer.masksToBounds = true
         l.layer.borderWidth = 1.0
         l.layer.cornerRadius = 20
-        l.textColor = .white
         return l
     }()
     
@@ -28,12 +30,14 @@ class PriceCell: BaseTableViewCell {
         let l = UILabel()
         l.numberOfLines = 0
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         l.textAlignment = .center
-        l.layer.borderColor = UIColor.purple.cgColor
+        l.textColor = .white//UIColor.hexStringToUIColor(Constants.Colors.purpleColor)
+        l.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor)
+        l.layer.borderColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor).cgColor
+        l.layer.masksToBounds = true
         l.layer.borderWidth = 1.0
         l.layer.cornerRadius = 20
-        l.textColor = .white
         return l
     }()
     

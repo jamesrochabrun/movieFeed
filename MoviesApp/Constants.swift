@@ -17,7 +17,13 @@ struct Constants {
         static let mainDetailCellPaddingVertical: CGFloat = 7.0
         static let mainDetailCellHeight: CGFloat = 250.0
         static let heightPriceButton: CGFloat = 45.0
-        static let dismissButtonSize: CGFloat = 44.0
+        static let dismissButtonWidth: CGFloat = 44.0
+        static let dismissButtonHeight: CGFloat = 48.0
 
+    }
+    
+    struct Colors {
+        static let goldColor: String = "#ffa54c"
+        static let purpleColor: String = "#7c488d"
     }
 }

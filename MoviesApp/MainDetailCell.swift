@@ -59,8 +59,8 @@ class MainDetailCell: BaseTableViewCell {
     
     lazy var dismissButton: UIButton = {
         let b = UIButton()
-        b.backgroundColor = UIColor.purple
         b.translatesAutoresizingMaskIntoConstraints = false
+        b.setImage(#imageLiteral(resourceName: "dismiss"), for: .normal)
         b.addTarget(self, action: #selector(performHandler), for: .touchUpInside)
         return b
     }()
@@ -84,9 +84,9 @@ class MainDetailCell: BaseTableViewCell {
         containerView.addSubview(movieTitleLabel)
         containerView.addSubview(categoryLabel)
         
-        categoryLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         categoryLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.UI.mainDetailCellPaddingHorizontal).isActive = true
         categoryLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -Constants.UI.mainDetailCellPaddingHorizontal).isActive = true
+        categoryLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: (Constants.UI.mainDetailCellHeight / 2) + Constants.UI.cellPadding).isActive = true
         
         movieTitleLabel.bottomAnchor.constraint(equalTo: categoryLabel.topAnchor, constant: -Constants.UI.mainDetailCellPaddingVertical).isActive = true
         movieTitleLabel.leftAnchor.constraint(equalTo: categoryLabel.leftAnchor).isActive = true
@@ -97,10 +97,10 @@ class MainDetailCell: BaseTableViewCell {
         releaseDateLabel.rightAnchor.constraint(equalTo: categoryLabel.rightAnchor).isActive = true
         
         addSubview(dismissButton)
-        dismissButton.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        dismissButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
         dismissButton.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        dismissButton.heightAnchor.constraint(equalToConstant: Constants.UI.dismissButtonSize).isActive = true
-        dismissButton.widthAnchor.constraint(equalToConstant: Constants.UI.dismissButtonSize).isActive = true
+        dismissButton.heightAnchor.constraint(equalToConstant: Constants.UI.dismissButtonHeight).isActive = true
+        dismissButton.widthAnchor.constraint(equalToConstant: Constants.UI.dismissButtonWidth).isActive = true
     }
     
     @objc private func performHandler() {

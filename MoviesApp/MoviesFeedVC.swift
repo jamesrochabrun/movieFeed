@@ -12,6 +12,10 @@ class MoviesFeedVC: UICollectionViewController {
     
     private let cellID = "cellID"
     fileprivate let movieDataSource = MovieFeedDataSource()
+    lazy var gradientView: GradientView = {
+        let gv = GradientView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 22))
+        return gv
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +24,11 @@ class MoviesFeedVC: UICollectionViewController {
         collectionView?.dataSource = movieDataSource
         collectionView?.contentInset = UIEdgeInsetsMake(22, 0, 0, 0)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable), name: NSNotification.Name.successDataNotification, object: nil)
+        setUpViews()
+    }
+    
+    private func setUpViews() {
+        view.addSubview(gradientView)
     }
     
     func reloadTable() {
@@ -43,7 +52,6 @@ extension MoviesFeedVC {
         let movie = movieDataSource.getMovies()[indexPath.item]
         let movieDetailVC = MovieDetailVC()
         movieDetailVC.movie = movie
-      //  let navVC = UINavigationController(rootViewController: movieDetailVC)
         self.present(movieDetailVC, animated: true)
     }
 }

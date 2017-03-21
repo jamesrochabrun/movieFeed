@@ -77,7 +77,7 @@ class MovieCell: BaseCell {
         containerView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         containerView.heightAnchor.constraint(equalToConstant: Constants.UI.containerCellHeight).isActive = true
         
-        movieTitleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: Constants.UI.cellPadding).isActive = true
+        movieTitleLabel.bottomAnchor.constraint(equalTo: containerView.topAnchor, constant: Constants.UI.cellPadding).isActive = true
         movieTitleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -Constants.UI.cellPadding).isActive = true
         movieTitleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.UI.cellPadding).isActive = true
         movieTitleLabel.heightAnchor.constraint(equalToConstant: ((Constants.UI.containerCellHeight - Constants.UI.cellPadding * 2) / 3)).isActive = true
