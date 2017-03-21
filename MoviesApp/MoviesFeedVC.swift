@@ -47,6 +47,8 @@ class MoviesFeedVC: UICollectionViewController {
 
 extension MoviesFeedVC: UICollectionViewDelegateFlowLayout {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        gradientView.updateGradientSizeWith(size)
         collectionView?.collectionViewLayout.invalidateLayout()
     }
 }

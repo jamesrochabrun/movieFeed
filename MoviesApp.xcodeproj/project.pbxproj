@@ -21,6 +21,7 @@
 		7BBE9A341E80A3B600570BC6 /* MovieDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE9A331E80A3B600570BC6 /* MovieDataSource.swift */; };
 		7BBE9A371E80A42700570BC6 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE9A361E80A42700570BC6 /* BaseView.swift */; };
 		7BBE9A391E80A46700570BC6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE9A381E80A46700570BC6 /* GradientView.swift */; };
+		7BBE9A3B1E80E4A200570BC6 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE9A3A1E80E4A200570BC6 /* FooterView.swift */; };
 		7BC344711E7F266600390350 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC344701E7F266600390350 /* AppDelegate.swift */; };
 		7BC344731E7F266600390350 /* MoviesFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC344721E7F266600390350 /* MoviesFeedVC.swift */; };
 		7BC344781E7F266600390350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC344771E7F266600390350 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		7BBE9A331E80A3B600570BC6 /* MovieDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDataSource.swift; sourceTree = "<group>"; };
 		7BBE9A361E80A42700570BC6 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		7BBE9A381E80A46700570BC6 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		7BBE9A3A1E80E4A200570BC6 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		7BC3446D1E7F266600390350 /* MoviesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC344701E7F266600390350 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BC344721E7F266600390350 /* MoviesFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFeedVC.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				7BBE9A361E80A42700570BC6 /* BaseView.swift */,
 				7BBE9A381E80A46700570BC6 /* GradientView.swift */,
+				7BBE9A3A1E80E4A200570BC6 /* FooterView.swift */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				7BBE9A371E80A42700570BC6 /* BaseView.swift in Sources */,
 				7BBE9A321E80A35000570BC6 /* PriceCell.swift in Sources */,
 				7BC3448F1E7F90FF00390350 /* MovieViewModel.swift in Sources */,
+				7BBE9A3B1E80E4A200570BC6 /* FooterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

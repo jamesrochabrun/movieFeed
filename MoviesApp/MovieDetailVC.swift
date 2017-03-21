@@ -35,6 +35,17 @@ class MovieDetailVC: UITableViewController {
         }
     }
     
+    lazy var gradientView: GradientView = {
+        let gv = GradientView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 22))
+        return gv
+    }()
+    
+    lazy var footer: FooterView = {
+        let f = FooterView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+        return f
+    }()
+ 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView?.separatorStyle = .none
@@ -47,7 +58,12 @@ class MovieDetailVC: UITableViewController {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         NotificationCenter.default.addObserver(self, selector: #selector(dismissView), name: NSNotification.Name.dismissViewNotification, object: nil)
-     
+        view.addSubview(footer)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        gradientView.updateGradientSizeWith(CGSize(width: view.frame.width, height: 22))
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -65,13 +81,25 @@ class MovieDetailVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-       let gv = GradientView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 22))
-        return gv
+        return gradientView
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 22
     }
+    
+//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        
+//        let f = FooterView(frame: CGRect(x: 100, y: 0, width: self.view.frame.width, height: 50))
+//        return f
+//        
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 50
+//    }
+    
+
     
     @objc private func dismissView() {
         self.dismiss(animated: true)
