@@ -49,7 +49,7 @@ class PriceCell: BaseTableViewCell {
         purchaseLabel.heightAnchor.constraint(equalToConstant: Constants.UI.heightPriceButton).isActive = true
         purchaseLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
         purchaseLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        purchaseLabel.topAnchor.constraint(equalTo: topAnchor, constant: Constants.UI.mainDetailCellPaddingHorizontal).isActive = true
+        purchaseLabel.topAnchor.constraint(equalTo: topAnchor, constant: Constants.UI.priceCellPaddingVertical).isActive = true
         
         rentLabel.topAnchor.constraint(equalTo: purchaseLabel.bottomAnchor, constant: Constants.UI.mainDetailCellPaddingHorizontal).isActive = true
         rentLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true

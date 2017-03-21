@@ -41,20 +41,21 @@ class MovieDetailVC: UITableViewController {
         return gv
     }()
     
-    lazy var footer: FooterView = {
+    lazy var footerView: FooterView = {
         let f = FooterView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+        f.delegate = self
         return f
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = movieDataSource
         tableView?.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.backGroundColor)
         tableView.register(MainDetailCell.self, forCellReuseIdentifier: mainCellID)
         tableView.register(SummaryCell.self, forCellReuseIdentifier: summaryCellID)
         tableView.register(PriceCell.self, forCellReuseIdentifier: subDetailCellID)
-        tableView.dataSource = movieDataSource
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         NotificationCenter.default.addObserver(self, selector: #selector(dismissView), name: NSNotification.Name.dismissViewNotification, object: nil)
@@ -76,7 +77,7 @@ class MovieDetailVC: UITableViewController {
         } else if indexPath.row == 1 {
             return self.tableView.rowHeight
         }
-        return (Constants.UI.heightPriceButton * 2) + (Constants.UI.mainDetailCellPaddingHorizontal * 3)
+        return (Constants.UI.heightPriceButton * 2) + (Constants.UI.priceCellPaddingVertical * 2) + Constants.UI.mainDetailCellPaddingHorizontal
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -88,7 +89,7 @@ class MovieDetailVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return footer
+        return footerView
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -97,6 +98,30 @@ class MovieDetailVC: UITableViewController {
 
     @objc private func dismissView() {
         self.dismiss(animated: true)
+    }
+}
+
+extension MovieDetailVC: FooterViewDelegate {
+    
+    func showAlertControllerInVC() {
+        
+        let alertController = UIAlertController(title: "View on Itunes", message: "You are about to leave MoviesApp", preferredStyle: .alert)
+        
+        let goAction = UIAlertAction(title: "Go", style: .default) { (action) in
+            if let movie = self.movie, let url = URL(string: movie.itunesURL) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {
+            (action : UIAlertAction!) -> Void in
+        })
+        
+        alertController.addAction(goAction)
+        alertController.addAction(cancelAction)
+        
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }
 
