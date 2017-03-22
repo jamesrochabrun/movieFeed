@@ -16,7 +16,7 @@ class GradientView: BaseView {
     override func setUpViews() {
         
         gradient.frame = bounds
-        gradient.colors = [UIColor.hexStringToUIColor(Constants.Colors.goldColor).cgColor , UIColor.hexStringToUIColor(Constants.Colors.purpleColor).cgColor]
+        gradient.colors = [UIColor.hexStringToUIColor(Constants.Colors.leftColor).cgColor , UIColor.hexStringToUIColor(Constants.Colors.rightColor).cgColor]
         layer.insertSublayer(gradient, at: 0)
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)

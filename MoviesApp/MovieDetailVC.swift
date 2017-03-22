@@ -11,9 +11,6 @@ import UIKit
 
 class MovieDetailVC: UITableViewController {
     
-    private let mainCellID = "mainCellID"
-    private let summaryCellID = "summaryCellID"
-    private let subDetailCellID = "subDetailCellID"
     private var movieDataSource: MovieDataSource?
     
     let movieIMageView: MovieImageView = {
@@ -52,9 +49,9 @@ class MovieDetailVC: UITableViewController {
         tableView?.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.backGroundColor)
-        tableView.register(MainDetailCell.self, forCellReuseIdentifier: mainCellID)
-        tableView.register(SummaryCell.self, forCellReuseIdentifier: summaryCellID)
-        tableView.register(PriceCell.self, forCellReuseIdentifier: subDetailCellID)
+        tableView.register(MainDetailCell.self)
+        tableView.register(SummaryCell.self)
+        tableView.register(PriceCell.self)        
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         NotificationCenter.default.addObserver(self, selector: #selector(dismissView), name: NSNotification.Name.dismissViewNotification, object: nil)

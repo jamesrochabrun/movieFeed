@@ -22,12 +22,13 @@ struct Constants {
         static let dismissButtonHeight: CGFloat = 48.0
         static let statusBarHeight: CGFloat = 22.0
         static let footerbuttonHeight: CGFloat = 50.0
-
     }
     
+
     struct Colors {
-        static let goldColor: String = "#ffa54c"
-        static let purpleColor: String = "#7c488d"
+        //change this values to change the whole aspect of the app
+        static let leftColor: String = "#ffa54c"
+        static let rightColor: String = "#9640a4"
         static let backGroundColor: String = "#3f3f3f"
     }
     

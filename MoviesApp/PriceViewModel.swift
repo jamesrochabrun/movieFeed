@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct PriceViewModel {
 
     let purchasePrice: String

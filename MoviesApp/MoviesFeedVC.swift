@@ -10,7 +10,6 @@ import UIKit
 
 class MoviesFeedVC: UICollectionViewController {
     
-    private let cellID = "cellID"
     fileprivate let movieDataSource = MovieFeedDataSource()
     
     lazy var gradientView: GradientView = {
@@ -26,7 +25,7 @@ class MoviesFeedVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.backGroundColor)
-        collectionView?.register(MovieCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView?.register(MovieCell.self)
         collectionView?.dataSource = movieDataSource
         collectionView?.contentInset = UIEdgeInsetsMake(Constants.UI.statusBarHeight, 0, 0, 0)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable), name: NSNotification.Name.successDataNotification, object: nil)
@@ -45,6 +44,7 @@ class MoviesFeedVC: UICollectionViewController {
     func reloadTable() {
         collectionView?.reloadData()
         customIndicator.stopAnimating()
+        print("reloaded")
     }
     
     override func viewDidDisappear(_ animated: Bool) {

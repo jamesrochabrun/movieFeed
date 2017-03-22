@@ -18,8 +18,8 @@ class PriceCell: BaseTableViewCell {
         l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         l.textAlignment = .center
         l.textColor = .white
-        l.layer.borderColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor).cgColor
-        l.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor)
+        l.layer.borderColor = UIColor.hexStringToUIColor(Constants.Colors.rightColor).cgColor
+        l.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.rightColor)
         l.layer.masksToBounds = true
         l.layer.borderWidth = 1.0
         l.layer.cornerRadius = 20
@@ -33,8 +33,8 @@ class PriceCell: BaseTableViewCell {
         l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         l.textAlignment = .center
         l.textColor = .white
-        l.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor)
-        l.layer.borderColor = UIColor.hexStringToUIColor(Constants.Colors.purpleColor).cgColor
+        l.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.rightColor)
+        l.layer.borderColor = UIColor.hexStringToUIColor(Constants.Colors.rightColor).cgColor
         l.layer.masksToBounds = true
         l.layer.borderWidth = 1.0
         l.layer.cornerRadius = 20

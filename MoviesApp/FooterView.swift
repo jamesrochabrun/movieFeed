@@ -19,7 +19,7 @@ class FooterView: BaseView {
     lazy var itunesButton: UIButton = {
         let b = UIButton()
         b.translatesAutoresizingMaskIntoConstraints = false
-        b.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.goldColor)
+        b.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.leftColor)
         b.setTitle("View On Itunes", for: .normal)
         b.addTarget(self, action: #selector(handleTrigger), for: .touchUpInside)
         return b

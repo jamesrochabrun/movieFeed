@@ -10,14 +10,15 @@ import Foundation
 import UIKit
 
 
-class ItunesAPIClient {
+class MovieService: Gettable {
     
     let endpoint: String = "https://itunes.apple.com/us/rss/topmovies/limit=25/json"
 
     let downloader = JSONDownloader()
+    //the associated type is inferred by <[Movie?]>
     typealias CurrentWeatherCompletionHandler = (Result<[Movie?]>) -> ()
     
-    func getMovieFeedWith(completion: @escaping CurrentWeatherCompletionHandler) {
+    func get(completion: @escaping CurrentWeatherCompletionHandler) {
         
         guard let url = URL(string: self.endpoint) else {
             completion(.Error(.invalidURL))
@@ -27,7 +28,6 @@ class ItunesAPIClient {
         let task = downloader.jsonTask(with: request) { (result) in
             
             DispatchQueue.main.async {
-                
                 switch result {
                 case .Error(let error):
                     completion(.Error(error))
@@ -44,6 +44,13 @@ class ItunesAPIClient {
         }
         task.resume()
     }
+}
+
+//uisng associatedType in protocol
+
+protocol Gettable {
+    associatedtype T
+    func get(completion: @escaping (Result<T>) -> Void)
 }
 
 

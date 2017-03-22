@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-class ContainerOpaque: UIView, Opaqueable {}
 
 class MainDetailCell: BaseTableViewCell {
     
@@ -19,8 +18,8 @@ class MainDetailCell: BaseTableViewCell {
         return miv
     }()
     
-    let containerView: ContainerOpaque = {
-        let cv = ContainerOpaque()
+    let containerView: UIView = {
+        let cv = UIView()
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.opaqueWith(color: Constants.Colors.backGroundColor, alpha: 0.4)
         return cv
@@ -56,12 +55,9 @@ class MainDetailCell: BaseTableViewCell {
         return l
     }()
     
-    lazy var dismissButton: UIButton = {
-        let b = UIButton()
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.setImage(#imageLiteral(resourceName: "dismiss"), for: .normal)
-        b.addTarget(self, action: #selector(performHandler), for: .touchUpInside)
-        return b
+    let dismissButton: CustomDismissButton = {
+        let dbv = CustomDismissButton()
+        return dbv
     }()
     
     override func setupViews() {
@@ -101,11 +97,6 @@ class MainDetailCell: BaseTableViewCell {
         dismissButton.heightAnchor.constraint(equalToConstant: Constants.UI.dismissButtonHeight).isActive = true
         dismissButton.widthAnchor.constraint(equalToConstant: Constants.UI.dismissButtonWidth).isActive = true
     }
-    
-    @objc private func performHandler() {
-        NotificationCenter.default.post(name: Notification.Name.dismissViewNotification, object: nil)
-    }
-
     
     func displayMovieInCell(using viewModel: MovieViewModel) {
         

@@ -22,4 +22,6 @@ extension Opaqueable where Self: UIView {
     }
 }
 
+extension UIView: Opaqueable {}
+
 
