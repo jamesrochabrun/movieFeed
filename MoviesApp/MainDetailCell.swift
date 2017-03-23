@@ -21,7 +21,7 @@ class MainDetailCell: BaseTableViewCell {
     let containerView: UIView = {
         let cv = UIView()
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.opaqueWith(color: Constants.Colors.backGroundColor, alpha: 0.4)
+        cv.opaque(with: Constants.Colors.backGroundColor, alpha: 0.4)
         return cv
     }()
 

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class MovieService: Gettable {
+struct MovieService: Gettable {
     
     let endpoint: String = "https://itunes.apple.com/us/rss/topmovies/limit=25/json"
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class JSONDownloader {
+struct JSONDownloader {
     
     let session: URLSession
     
@@ -16,7 +16,7 @@ class JSONDownloader {
         self.session = URLSession(configuration: configuration)
     }
     
-    convenience init() {
+    init() {
         self.init(configuration: .default)
     }
     
@@ -69,3 +69,8 @@ enum ItunesApiError: Error {
     case invalidURL
     case jsonParsingFailure
 }
+
+
+
+
+

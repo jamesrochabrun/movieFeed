@@ -15,8 +15,8 @@ class MovieDetailVC: UITableViewController {
     
     let movieIMageView: MovieImageView = {
         let miv = MovieImageView(frame: CGRect.zero)
-        miv.blurWith(style: .light)
-        miv.opaqueWith(color: Constants.Colors.backGroundColor, alpha: 0.3)
+        miv.blur(with: .light)
+        miv.opaque(with: Constants.Colors.backGroundColor, alpha: 0.3)
         return miv
     }()
     

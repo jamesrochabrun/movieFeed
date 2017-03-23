@@ -13,7 +13,7 @@ protocol Opaqueable {}
 
 extension Opaqueable where Self: UIView {
     
-    func opaqueWith(color: String, alpha: CGFloat) {
+    func opaque(with color: String, alpha: CGFloat) {
         let overlay = UIView()
         overlay.backgroundColor = UIColor.hexStringToUIColor(color)
         overlay.alpha = alpha

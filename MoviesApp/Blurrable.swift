@@ -13,7 +13,7 @@ protocol Blurrable {}
 
 extension Blurrable where Self: UIView {
     
-    func blurWith(style: UIBlurEffectStyle) {
+    func blur(with style: UIBlurEffectStyle) {
         let blurEffect = UIBlurEffect(style: style)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
