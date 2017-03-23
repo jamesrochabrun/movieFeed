@@ -44,7 +44,6 @@ class MoviesFeedVC: UICollectionViewController {
     func reloadTable() {
         collectionView?.reloadData()
         customIndicator.stopAnimating()
-        print("reloaded")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
