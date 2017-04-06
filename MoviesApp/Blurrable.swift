@@ -17,6 +17,7 @@ extension Blurrable where Self: UIView {
         let blurEffect = UIBlurEffect(style: style)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.bounds = self.bounds
         addSubview(blurEffectView)
     }
 }

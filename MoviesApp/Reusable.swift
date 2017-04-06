@@ -45,6 +45,15 @@ extension UITableView {
 
 extension UICollectionView {
     
+    typealias DataSourceCompletionHandler = (Bool) -> ()
+    func registerDatasource<T: UICollectionViewDataSource>(_ _datasource :T, completion: @escaping DataSourceCompletionHandler) {
+        dataSource = _datasource
+        DispatchQueue.main.async {
+            self.reloadData()
+            completion(true)
+        }
+    }
+    
     func register<T: UICollectionViewCell>(_ :T.Type) where T: Reusable {
         register(T.self, forCellWithReuseIdentifier: T.reuseIdentifier)
     }

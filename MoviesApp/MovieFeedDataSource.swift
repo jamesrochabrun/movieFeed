@@ -11,13 +11,7 @@ import UIKit
 
 class MovieFeedDataSource: NSObject, UICollectionViewDataSource {
     
-    private let cellID = "cellID"
-    private var movies = [Movie]() {
-        didSet {
-            NotificationCenter.default.post(name: Notification.Name.successDataNotification, object: nil)
-        }
-    }
-    
+    private var movies = [Movie]()
     override init() {
         super.init()
         getMovies(fromService: MovieService())
@@ -25,6 +19,7 @@ class MovieFeedDataSource: NSObject, UICollectionViewDataSource {
     
     //this function accepts a service that conform to the Gettable protocol and that that protocol's associated type is type Array<Movie?>
     private func getMovies<S: Gettable>(fromService service: S) where S.T == Array<Movie?> {
+        
         service.get { [weak self] (result) in
             switch result {
             case .Success(let movies):

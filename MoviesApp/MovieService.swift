@@ -9,16 +9,18 @@
 import Foundation
 import UIKit
 
-
 struct MovieService: Gettable {
     
+    //1 properties
     let endpoint: String = "https://itunes.apple.com/us/rss/topmovies/limit=25/json"
 
     let downloader = JSONDownloader()
-    //the associated type is inferred by <[Movie?]>
-    typealias CurrentWeatherCompletionHandler = (Result<[Movie?]>) -> ()
     
-    func get(completion: @escaping CurrentWeatherCompletionHandler) {
+    //the associated type is inferred by <[Movie?]>
+    typealias MoviesCompletionHandler = (Result<[Movie?]>) -> ()
+    
+    //3 protocol required function
+    func get(completion: @escaping MoviesCompletionHandler) {
         
         guard let url = URL(string: self.endpoint) else {
             completion(.Error(.invalidURL))
@@ -33,10 +35,12 @@ struct MovieService: Gettable {
                     completion(.Error(error))
                     return
                 case .Success(let json):
+                    //4 parsing the Json response
                     guard let movieJSONFeed = json["feed"] as? [String: AnyObject], let entryArray = movieJSONFeed["entry"] as? [[String: AnyObject]] else {
                         completion(.Error(.jsonParsingFailure))
                         return
                     }
+                    //5 maping the array and create Movie objects
                     let movieArray = entryArray.map{Movie(json: $0)}
                     completion(.Success(movieArray))
                 }
@@ -46,8 +50,7 @@ struct MovieService: Gettable {
     }
 }
 
-//uisng associatedType in protocol
-
+//2 uisng associatedType in protocol
 protocol Gettable {
     associatedtype T
     func get(completion: @escaping (Result<T>) -> Void)

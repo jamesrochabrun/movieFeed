@@ -26,9 +26,10 @@ class MoviesFeedVC: UICollectionViewController {
         super.viewDidLoad()
         collectionView?.backgroundColor = UIColor.hexStringToUIColor(Constants.Colors.backGroundColor)
         collectionView?.register(MovieCell.self)
-        collectionView?.dataSource = movieDataSource
+        collectionView?.registerDatasource(movieDataSource, completion: { (complete) in
+            self.customIndicator.stopAnimating()
+        })
         collectionView?.contentInset = UIEdgeInsetsMake(Constants.UI.statusBarHeight, 0, 0, 0)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTable), name: NSNotification.Name.successDataNotification, object: nil)
         setUpViews()
     }
     
@@ -39,16 +40,6 @@ class MoviesFeedVC: UICollectionViewController {
         customIndicator.widthAnchor.constraint(equalToConstant: 80).isActive = true
         customIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         customIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    }
-    
-    func reloadTable() {
-        collectionView?.reloadData()
-        customIndicator.stopAnimating()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
